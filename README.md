@@ -13,5 +13,4 @@ Accented characters like é, ü, ñ = 2 bytes
 Asian languages (Chinese, Japanese, Korean) = 2–3 bytes
 Emoji (🙂, 🚀, ❤️, 🔥) = 4 bytes
 
-In Microsoft Fabric, Lakehouse (Spark) strings are UTF-8 by default, so mixed-language text works out of the box, no need to choose between VARCHAR and NVARCHAR. Just make sure your ingested files are properly UTF-8 encoded. In Fabric Warehouse, treat it like Azure SQL, use a _UTF8 collation at the database or column level if it’s available in your tenant, otherwise, fall back to NVARCHAR. In Power BI, Import and Direct Lake models use Unicode and dictionary encoding, so the source type doesn’t materially affect model size. However, in DirectQuery, sorting and filtering follow the source collation, so it's critical to configure the correct Unicode or UTF-8 collation at the source.
 
